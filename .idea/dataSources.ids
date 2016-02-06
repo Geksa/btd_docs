@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - mydb@localhost" uuid="2566062a-7355-4c6a-9380-85a1df9da512">
+    <database-info product="MySQL" version="5.5.23" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="mydb"/>
+    <table name="documents" schema="" catalog="mydb" type="TABLE">
+      <column name="docId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="docName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="employees_empId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="docId"/>
+      <foreign-key name="fk_DOCUMENT_employees" columns="employees_empId" ref-table="employees" ref-schema="" ref-catalog="mydb" ref-columns="empId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_DOCUMENT_employees" unique="false" columns="employees_empId"/>
+    </table>
+    <table name="employees" schema="" catalog="mydb" type="TABLE">
+      <column name="empId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="empName" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="empId"/>
+      <exported-key name="fk_DOCUMENT_employees" table="documents" schema="" catalog="mydb" columns="employees_empId"/>
+    </table>
+  </data-source>
+</component>
